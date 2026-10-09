@@ -3,7 +3,10 @@ using UnityEngine;
 public class AI_Input : MonoBehaviour
 {
     public Transform tr; //For Getting the Position of Ball
-    private float speed = 5f;
+    private float speed;
+    public float topWallY = 4.75f;                                              //For AI Prediction
+    public float bottomWallY = -4.75f;                                          //For AI Prediction
+    public float paddleOffset = 0.5f;                                           //For AI Prediction   
     private Rigidbody2D rb; //For AI Paddle
     float target; //For AI Paddle
     public Rigidbody2D Ballrb; //For Ball
@@ -11,6 +14,27 @@ public class AI_Input : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         target = transform.position.y;
+        // Read the selected difficulty.
+        int difficulty = PlayerPrefs.GetInt("Difficulty", 1);
+
+        switch (difficulty)
+        {
+            case 0: // Easy
+                speed = 5f;
+                break;
+
+            case 1: // Medium
+                speed = 10f;
+                break;
+
+            case 2: // Hard
+                PredictBallY();
+                break;
+
+            default:
+                speed = 5f;
+                break;
+        }
     }
 
     void FixedUpdate()
@@ -19,13 +43,6 @@ public class AI_Input : MonoBehaviour
         if (Ballrb.linearVelocity.x > 0)
         {
             target = tr.position.y;
-            //timer = timer + Time.fixedDeltaTime;
-            //if (timer >= reactionDelay)
-            //{
-            //    target = tr.position.y;
-            //    timer = 0f;
-            //}
-            //These Condition are used to make AI paddle Follow the Ball
             if (target > transform.position.y)
             {
                 rb.linearVelocity = new Vector2(0, speed);
@@ -43,5 +60,38 @@ public class AI_Input : MonoBehaviour
         {
                 rb.linearVelocity = Vector2.zero;            
         }
+    }
+    float PredictBallY()                                                        //For AI Prediction
+    {                                                                           //For AI Prediction
+        float ballX = Ballrb.position.x;                                        //For AI Prediction
+        float ballY = Ballrb.position.y;                                        //For AI Prediction
+                                                                                //For AI Prediction
+        float velocityX = Ballrb.linearVelocity.x;                              //For AI Prediction            
+        float velocityY = Ballrb.linearVelocity.y;                              //For AI Prediction                    
+                                                                                //For AI Prediction
+        // Time until the ball reaches the AI paddle.                           //For AI Prediction                                        
+        float timeToReach =                                                     //For AI Prediction                    
+            (transform.position.x - ballX - paddleOffset) / velocityX;          //For AI Prediction                                                    
+
+        timeToReach = Mathf.Max(0f, timeToReach);                               //For AI Prediction                                
+                                                                                //For AI Prediction                                    
+        // Predict the Y position without wall bounces.                         //For AI Prediction                                
+        float predictedY = ballY + velocityY * timeToReach;                     //For AI Prediction                                        
+                                                                                //For AI Prediction                             
+        // Court boundaries.                                                    //For AI Prediction                                
+        float lower = bottomWallY;                                              //For AI Prediction    
+        float upper = topWallY;                                                 //For AI Prediction    
+        float height = upper - lower;                                           //For AI Prediction                                                                                                                    
+                                                                                //For AI Prediction                        
+        // Reflect the predicted position at the walls.                         //For AI Prediction                                                                    
+        float distance = (predictedY - lower) % (2f * height);                  //For AI Prediction                                                                            
+                                                                                //For AI Prediction                        
+        if (distance < 0f)                                                      //For AI Prediction                                        
+            distance += 2f * height;                                            //For AI Prediction
+                                                                                //For AI Prediction                        
+        if (distance > height)                                                  //For AI Prediction                                            
+            distance = 2f * height - distance;                                  //For AI Prediction                                                            
+                                                                                //For AI Prediction                        
+        return lower + distance;                                                //For AI Prediction                                                
     }
 }

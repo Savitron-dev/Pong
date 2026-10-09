@@ -4,6 +4,7 @@ using static UnityEngine.ParticleSystem;
 public class Ball_Input : MonoBehaviour
 {
     private float speed = 8f;
+    private float maxspeed = 15f;
     public GameObject cts; //Calls the Click_To_Start Button
     public GameObject restart; //Calls the Restart Button
     public GameObject bg; //Calls the BG
@@ -26,6 +27,16 @@ public class Ball_Input : MonoBehaviour
         bg.SetActive(true);
 
         click.mute = Audio_Manager.instance.isMuted;
+
+        //int difficulty = PlayerPrefs.GetInt("Difficulty", 1);
+        //if (difficulty == 0)
+        //{
+        //    maxspeed = 15f;
+        //}
+        //else
+        //{
+        //    maxspeed = 25f;
+        //}
     }
     public void RestartBall() 
     {
@@ -66,9 +77,9 @@ public class Ball_Input : MonoBehaviour
     void FixedUpdate()
     {
         //Sets the Maximum value of Speed, so that the ball does not ByPass the Wall
-        if (rb.linearVelocity.magnitude > 15f) 
+        if (rb.linearVelocity.magnitude > maxspeed) 
         {
-            rb.linearVelocity = rb.linearVelocity.normalized * 15f;
+            rb.linearVelocity = rb.linearVelocity.normalized * maxspeed;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)

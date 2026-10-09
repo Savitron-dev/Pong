@@ -41,8 +41,14 @@ public class Ball_Input : MonoBehaviour
             ballTrail.Clear();
         }
 
+        // Random horizontal direction: left or right
+        float randomX = Random.value < 0.5f ? -1f : 1f;
+
+        // Random vertical direction: up or down
+        float randomY = Random.value < 0.5f ? -1f : 1f;
+
         //Start the Movement(Velocity) of the Ball Again
-        Vector2 move = new Vector2(-1f, 1f);
+        Vector2 move = new Vector2(randomX, randomY);
         rb.linearVelocity = move.normalized * speed;
         
         //Hiding the Continue Button again after Reset

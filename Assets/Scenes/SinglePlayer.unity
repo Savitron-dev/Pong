@@ -515,6 +515,7 @@ MonoBehaviour:
   bg: {fileID: 1460133067}
   pause: {fileID: 2133092684}
   Win: {fileID: 1072770817}
+  ballTrail: {fileID: 319962880}
   click: {fileID: 752831270}
 --- !u!58 &319962878
 CircleCollider2D:
@@ -2661,6 +2662,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1069072288}
   - component: {fileID: 1069072289}
+  - component: {fileID: 1069072290}
   m_Layer: 0
   m_Name: Button_Manager
   m_TagString: Untagged
@@ -2703,6 +2705,18 @@ MonoBehaviour:
   cts: {fileID: 1254351527}
   bg: {fileID: 1460133067}
   ballTrail: {fileID: 319962880}
+--- !u!114 &1069072290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069072287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa9d79000b239334ca741e035328255b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mobile_BackButton
 --- !u!1 &1072770817
 GameObject:
   m_ObjectHideFlags: 0

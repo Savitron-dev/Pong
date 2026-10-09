@@ -26,7 +26,7 @@ public class Button_Manager : MonoBehaviour
     {
         click.Play();
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("LevelSelection");
     }
     public void Pause() //For Pause Button
     {

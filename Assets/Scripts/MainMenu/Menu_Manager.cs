@@ -12,7 +12,7 @@ public class Menu_Manager : MonoBehaviour
     public void SinglePlayerLoad() 
     {
         click.Play();
-        SceneManager.LoadScene("SinglePlayer");
+        SceneManager.LoadScene("LevelSelection");
     }
     public void MultiPlayerLoad() 
     {

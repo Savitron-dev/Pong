@@ -28,24 +28,36 @@ public class Ball_Input : MonoBehaviour
 
         click.mute = Audio_Manager.instance.isMuted;
 
-        //int difficulty = PlayerPrefs.GetInt("Difficulty", 1);
-        //if (difficulty == 0)
-        //{
-        //    maxspeed = 15f;
-        //}
-        //else
-        //{
-        //    maxspeed = 25f;
-        //}
+        int difficulty = PlayerPrefs.GetInt("Difficulty", 1);
+
+        if (difficulty == 0)
+        {
+            speed = 6f;
+            maxspeed = 15f;
+        }
+        else if (difficulty == 1)
+        {
+            speed = 8f;
+            maxspeed = 20f;
+        }
+        else
+        {
+            speed = 10f;
+            maxspeed = 25f;
+        }
+        Debug.Log("Difficulty: " + difficulty);
+        Debug.Log("Ball Starting Speed: " + speed);
+        Debug.Log("Ball Maximum Speed: " + maxspeed);
     }
     public void RestartBall() 
     {
+        Debug.Log("RestartBall() was called!");
 
         //Reset the Position
         transform.position = new Vector2(0, 0);
 
         //Reset Ball Velocity
-        rb.linearVelocity = Vector3.zero;
+        rb.linearVelocity = Vector2.zero;
         if (ballTrail != null)
         {
             //Clear the Ball Trail
@@ -60,8 +72,11 @@ public class Ball_Input : MonoBehaviour
 
         //Start the Movement(Velocity) of the Ball Again
         Vector2 move = new Vector2(randomX, randomY);
+        Debug.Log("Starting Speed: " + speed);
+        Debug.Log("Movement Direction: " + move);
         rb.linearVelocity = move.normalized * speed;
-        
+        Debug.Log("Ball Velocity: " + rb.linearVelocity);
+
         //Hiding the Continue Button again after Reset
         cts.SetActive(false);
 

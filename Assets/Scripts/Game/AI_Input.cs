@@ -24,7 +24,7 @@ public class AI_Input : MonoBehaviour
                 break;
 
             case 1: // Medium
-                speed = 10f;
+                speed = 8f;
                 break;
 
             case 2: // Hard

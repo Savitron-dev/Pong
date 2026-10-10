@@ -10,6 +10,12 @@ public class AI_Input : MonoBehaviour
     private Rigidbody2D rb; //For AI Paddle
     float target; //For AI Paddle
     public Rigidbody2D Ballrb; //For Ball
+    float timeToReach;
+    float ballX;
+    float ballY;
+    float velocityX;
+    float velocityY;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -24,17 +30,23 @@ public class AI_Input : MonoBehaviour
                 break;
 
             case 1: // Medium
-                speed = 8f;
+                speed = 10f;
                 break;
 
             case 2: // Hard
-                PredictBallY();
+                speed = 20f;
                 break;
 
             default:
-                speed = 5f;
+                speed = 8f;
                 break;
         }
+        ballX = Ballrb.position.x;                                        
+        ballY = Ballrb.position.y;                                                                                                               
+        velocityX = Ballrb.linearVelocity.x;                                          
+        velocityY = Ballrb.linearVelocity.y;                                                                                                                        
+        // Time until the ball reaches the AI paddle.                                                                   
+        timeToReach = (transform.position.x - ballX - paddleOffset) / velocityX;                                                              
     }
 
     void FixedUpdate()
@@ -61,37 +73,29 @@ public class AI_Input : MonoBehaviour
                 rb.linearVelocity = Vector2.zero;            
         }
     }
-    float PredictBallY()                                                        //For AI Prediction
-    {                                                                           //For AI Prediction
-        float ballX = Ballrb.position.x;                                        //For AI Prediction
-        float ballY = Ballrb.position.y;                                        //For AI Prediction
-                                                                                //For AI Prediction
-        float velocityX = Ballrb.linearVelocity.x;                              //For AI Prediction            
-        float velocityY = Ballrb.linearVelocity.y;                              //For AI Prediction                    
-                                                                                //For AI Prediction
-        // Time until the ball reaches the AI paddle.                           //For AI Prediction                                        
-        float timeToReach =                                                     //For AI Prediction                    
-            (transform.position.x - ballX - paddleOffset) / velocityX;          //For AI Prediction                                                    
+    //    float PredictBallY(float timeToReach)
+    //    {
+    //        float lowerWall = -4.75f;
+    //        float upperWall = 4.75f;
 
-        timeToReach = Mathf.Max(0f, timeToReach);                               //For AI Prediction                                
-                                                                                //For AI Prediction                                    
-        // Predict the Y position without wall bounces.                         //For AI Prediction                                
-        float predictedY = ballY + velocityY * timeToReach;                     //For AI Prediction                                        
-                                                                                //For AI Prediction                             
-        // Court boundaries.                                                    //For AI Prediction                                
-        float lower = bottomWallY;                                              //For AI Prediction    
-        float upper = topWallY;                                                 //For AI Prediction    
-        float height = upper - lower;                                           //For AI Prediction                                                                                                                    
-                                                                                //For AI Prediction                        
-        // Reflect the predicted position at the walls.                         //For AI Prediction                                                                    
-        float distance = (predictedY - lower) % (2f * height);                  //For AI Prediction                                                                            
-                                                                                //For AI Prediction                        
-        if (distance < 0f)                                                      //For AI Prediction                                        
-            distance += 2f * height;                                            //For AI Prediction
-                                                                                //For AI Prediction                        
-        if (distance > height)                                                  //For AI Prediction                                            
-            distance = 2f * height - distance;                                  //For AI Prediction                                                            
-                                                                                //For AI Prediction                        
-        return lower + distance;                                                //For AI Prediction                                                
-    }
+    //        float height = upperWall - lowerWall;
+
+    //        // Step 1: Predict position without walls
+    //        float rawY = tr.position.y
+    //                     + Ballrb.linearVelocity.y * timeToReach;
+
+    //        // Step 2: Map position into the repeating reflection pattern
+    //        float r = ((rawY - lowerWall) % (2f * height)
+    //                   + (2f * height)) % (2f * height);
+
+    //        // Step 3: Calculate the final reflected position
+    //        if (r <= height)
+    //        {
+    //            return lowerWall + r;
+    //        }
+    //        else
+    //        {
+    //            return upperWall - (r - height);
+    //        }
+    //    }
 }

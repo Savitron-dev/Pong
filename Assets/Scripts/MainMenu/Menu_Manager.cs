@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class Menu_Manager : MonoBehaviour
 {
     public AudioSource click;
-    public AudioSource BGM;
+    public Audio_Manager audio;
     public GameObject Music_ON;
     public GameObject Music_OFF;
     public GameObject BGM_ON;
@@ -39,17 +39,20 @@ public class Menu_Manager : MonoBehaviour
     public void BGMOFF() 
     {
         click.Play();
-        BGM.mute = true;
+        Audio_Manager.instance.isMuted = true;
+        Audio_Manager.instance.bgm.mute = true;
+        PlayerPrefs.SetInt("MusicMuted", 1);
         BGM_ON.SetActive(true);
         BGM_OFF.SetActive(false);
     }
     public void BGMON() 
     {
         click.Play();
-        BGM.mute = false;
+        Audio_Manager.instance.isMuted = false;
+        Audio_Manager.instance.bgm.mute = false;
+        PlayerPrefs.SetInt("MusicMuted", 0);
         BGM_OFF.SetActive(true);
         BGM_ON.SetActive(false);
-        Debug.Log("Game ON!!!");
     }
 
     public void Quit() 

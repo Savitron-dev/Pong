@@ -5,6 +5,7 @@ public class Button_Manager : MonoBehaviour
 {
     public AudioSource click; //For Audio Clip "Click"
     public Score_Manager score;
+    public Audio_Manager audio;
     public GameObject pause;
     public GameObject countinue_;
     public GameObject restart;

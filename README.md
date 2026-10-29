@@ -3,42 +3,13 @@
 # 🏓 Classic Pong Game
 
 **A modern, sleek, and responsive remake of the timeless arcade classic.**
-
-[!\[GitHub Stars](https://img.shields.io/github/stars/Savitron-dev/Pong?style=for-the-badge\&color=ffd700)](https://github.com/Savitron-dev/Pong/stargazers)
-[!\[GitHub Forks](https://img.shields.io/github/forks/Savitron-dev/Pong?style=for-the-badge\&color=00f2fe)](https://github.com/Savitron-dev/Pong/network/members)
-[!\[GitHub Issues](https://img.shields.io/github/issues/Savitron-dev/Pong?style=for-the-badge\&color=ff4b4b)](https://github.com/Savitron-dev/Pong/issues)
-[!\[License](https://img.shields.io/github/license/Savitron-dev/Pong?style=for-the-badge\&color=4bc51d)](LICENSE)
-
-<br />
-
-[View Demo](#-gameplay) · [Report Bug](https://github.com/Savitron-dev/Pong/issues) · [Request Feature](https://github.com/Savitron-dev/Pong/issues)
-
-</div>
-
-\---
-
-## 📖 Table of Contents
-
-* [About The Project](#-about-the-project)
-* [Tech Stack](#-tech-stack)
-* [Key Features](#-key-features)
-* [Gameplay \& Controls](#-gameplay--controls)
-* [Getting Started](#-getting-started)
-
-  * [Prerequisites](#prerequisites)
-  * [Installation](#installation)
-* [Roadmap](#-roadmap)
-* [Contributing](#-contributing)
-* [License](#-license)
-* [Author](#-author)
-
-\---
+**Built For ANDROID*
 
 ## 📸 Gameplay
 
 <div align="center">
   <!-- Replace this link with a screenshot or animated GIF of your game in action -->
-  <img src="https://via.placeholder.com/800x450.png?text=Pong+Game+Preview+GIF/Screenshot" alt="Pong Gameplay Preview" width="100%" style="border-radius: 10px;" />
+  <img src="https://github.com/Savitron-dev/Pong/blob/main/Assets/Screenshots/Main_Menu.jpg" alt="Pong Gameplay Preview" width="100%" style="border-radius: 10px;" />
 </div>
 
 \---

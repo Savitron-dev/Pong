@@ -44,7 +44,6 @@ This project was built using the following technologies:
 * 🤖 **AI / Local Multiplayer:** Play against a smart AI bot or a friend on the same keyboard.
 * ⚡ **Dynamic Physics:** Ball speed gradually increases with every successful rally.
 * 🎨 **Retro Aesthetic:** Clean minimalist UI with neon arcade styling.
-* 📱 **Responsive Design:** Auto-scales to fit different display sizes smoothly.
 
 \---
 

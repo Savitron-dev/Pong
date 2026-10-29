@@ -15,6 +15,7 @@
 </div>
 
 \---
+<div align="left">
 
 ## 🧐 About The Project
 
@@ -47,13 +48,7 @@ This project was built using the following technologies:
 
 ## 🎮 Gameplay \& Controls
 
-|Player|Move Up|Move Down|
-|-|-|-|
-|**Player 1 (Left)**|<kbd>W</kbd>|<kbd>S</kbd>|
-|**Player 2 (Right)**|<kbd>▲ Up Arrow</kbd>|<kbd>▼ Down Arrow</kbd>|
-
-* **Pause / Resume:** <kbd>Spacebar</kbd> or <kbd>P</kbd>
-* **Reset Game:** <kbd>R</kbd>
+* **Controls** <kbd>Touch</kbd>
 
 \---
 
@@ -63,7 +58,7 @@ To get a local copy up and running, follow these simple steps.
 
 ### Prerequisites
 
-Make sure you have a web browser installed (Chrome, Firefox, Edge, or Safari).
+Make sure you have an Android.
 
 ### Installation
 
@@ -83,17 +78,6 @@ Make sure you have a web browser installed (Chrome, Firefox, Edge, or Safari).
 
    * Simply double-click `index.html` to open it in your default web browser.
    * *Or* run a local server (e.g., using VS Code's Live Server extension).
-
-\---
-
-## 🗺️ Roadmap
-
-* \[ ] Add sound effects \& background music toggle
-* \[ ] Implement customizable AI difficulty levels (Easy, Medium, Hard)
-* \[ ] Add power-ups (larger paddle, multi-ball mode, speed boost)
-* \[ ] Local high score tracking and statistics
-
-See the [open issues](https://github.com/Savitron-dev/Pong/issues) for a full list of proposed features (and known issues).
 
 \---
 
@@ -122,7 +106,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * **GitHub:** [@Savitron-dev](https://github.com/Savitron-dev)
 
 \---
-
+</div>
 <div align="center">
   <sub>Built with ❤️ by <a href="https://github.com/Savitron-dev">Savitron-dev</a></sub>
 </div>

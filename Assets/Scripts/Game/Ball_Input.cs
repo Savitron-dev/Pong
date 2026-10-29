@@ -1,10 +1,11 @@
+using Unity.Mathematics.Geometry;
 using UnityEngine;
 using static UnityEngine.ParticleSystem;
 
 public class Ball_Input : MonoBehaviour
 {
     private float speed = 8f;
-    private float maxspeed = 15f;
+    private float maxSpeed = 15f;
     public GameObject cts; //Calls the Click_To_Start Button
     public GameObject restart; //Calls the Restart Button
     public GameObject bg; //Calls the BG
@@ -33,21 +34,21 @@ public class Ball_Input : MonoBehaviour
         if (difficulty == 0)
         {
             speed = 6f;
-            maxspeed = 15f;
+            maxSpeed = 15f;
         }
         else if (difficulty == 1)
         {
             speed = 8f;
-            maxspeed = 20f;
+            maxSpeed = 20f;
         }
         else
         {
             speed = 10f;
-            maxspeed = 25f;
+            maxSpeed = 25f;
         }
         Debug.Log("Difficulty: " + difficulty);
         Debug.Log("Ball Starting Speed: " + speed);
-        Debug.Log("Ball Maximum Speed: " + maxspeed);
+        Debug.Log("Ball Maximum Speed: " + maxSpeed);
     }
     public void RestartBall() 
     {
@@ -71,11 +72,8 @@ public class Ball_Input : MonoBehaviour
         float randomY = Random.value < 0.5f ? -1f : 1f;
 
         //Start the Movement(Velocity) of the Ball Again
-        Vector2 move = new Vector2(randomX, randomY);
-        Debug.Log("Starting Speed: " + speed);
-        Debug.Log("Movement Direction: " + move);
+        Vector2 move = new Vector2(randomX, randomY);       
         rb.linearVelocity = move.normalized * speed;
-        Debug.Log("Ball Velocity: " + rb.linearVelocity);
 
         //Hiding the Continue Button again after Reset
         cts.SetActive(false);
@@ -92,9 +90,9 @@ public class Ball_Input : MonoBehaviour
     void FixedUpdate()
     {
         //Sets the Maximum value of Speed, so that the ball does not ByPass the Wall
-        if (rb.linearVelocity.magnitude > maxspeed) 
+        if (rb.linearVelocity.magnitude > maxSpeed) 
         {
-            rb.linearVelocity = rb.linearVelocity.normalized * maxspeed;
+            rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -104,7 +102,20 @@ public class Ball_Input : MonoBehaviour
         //Increases the Ball Velocity on Collision with the Paddle
         if (collision.gameObject.CompareTag("Paddle")) 
         {
-            rb.linearVelocity *= 1.1f;
+            //rb.linearVelocity *= 2f;
+
+            Vector2 direction = rb.linearVelocity.normalized;
+
+            //Sets a Threshold Y-direction of Ball
+            if (Mathf.Abs(direction.y) < 0.25f) 
+            {
+                direction.y = 0.25f * Mathf.Sign(direction.y == 0 ? 1 : direction.y);
+                direction.Normalize();
+            }
+
+            float newSpeed = Mathf.Min(rb.linearVelocity.magnitude * 1.1f , maxSpeed);
+
+            rb.linearVelocity = direction * newSpeed;
         }
     }
 }

@@ -10,6 +10,8 @@
 <div align="center">
   <!-- Replace this link with a screenshot or animated GIF of your game in action -->
   <img src="https://github.com/Savitron-dev/Pong/blob/main/Assets/Screenshots/Main_Menu.jpg" alt="Pong Gameplay Preview" width="100%" style="border-radius: 10px;" />
+  <img src="https://github.com/Savitron-dev/Pong/blob/main/Assets/Screenshots/Level_Selection.jpg" alt="Pong Gameplay Preview" width="50%" style="border-radius: 10px;" />
+  <img src="https://github.com/Savitron-dev/Pong/blob/main/Assets/Screenshots/Playable_Game.jpg" alt="Pong Gameplay Preview" width="50%" style="border-radius: 10px;" />
 </div>
 
 \---

@@ -19,9 +19,11 @@
 
 ## 🧐 About The Project
 
-This project is a high-performance, polished implementation of the legendary **Pong** game. Built with clean, modular code, it offers smooth physics, responsive paddle controls, and retro-inspired visual elements.
+This project is an Android **Pong** Game with Simple UI and Basic Mechanics. Built with clean, modular code, it offers smooth physics, responsive paddle controls, and retro-inspired visual elements.
 
 Whether you're looking to challenge a friend locally or test your skills against an AI opponent, this repository provides an engaging arcade experience right out of the box.
+
+Built this game to learn about the Basics of Game Development.
 
 \---
 

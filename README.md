@@ -3,9 +3,9 @@
 # 🏓 Classic Pong Game
 
 **A modern, sleek, and responsive remake of the timeless arcade classic.**
-**Built For ANDROID*
-\---
-<div align="left">
+
+*Built For ANDROID*
+
 ## 📸 Gameplay
 
 <div align="center">

@@ -4,9 +4,12 @@
 
 **A modern, sleek, and responsive remake of the timeless arcade classic.**
 
-*Built For ANDROID*
+*Built For **ANDROID***
 
+<div align="left">
+  
 ## 📸 Gameplay
+</div>
 
 <div align="center">
   <!-- Replace this link with a screenshot or animated GIF of your game in action -->

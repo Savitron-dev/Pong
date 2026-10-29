@@ -78,9 +78,9 @@ Make sure you have an Android.
 
 3. **Run the game:**
 
-   * Simply double-click `index.html` to open it in your default web browser.
-   * *Or* run a local server (e.g., using VS Code's Live Server extension).
-
+   * Simply Open Game Build and Install Pong Game.apk
+   * Play and Enjoy the Game.
+     
 \---
 
 ## 🤝 Contributing

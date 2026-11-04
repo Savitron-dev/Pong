@@ -64,7 +64,8 @@ To get a local copy up and running, follow these simple steps.
 
 ### Prerequisites
 
-Make sure you have an Android.
+* Install [Unity](https://cloud.unity.com/organizations/13469977008373/onboarding/post-download?locale=en&code=abfGN2mWrOGf8CFglv_ITA00cf&locale=en&session_state=a77483ad5d485be4ca567c9679d215df85161cf78e05c0310940367a1d34b19b.lOfqfBntbvOlnMdXVlhzdQ01df).
+* Install any Code Editor (Ex - [VS Code](https://code.visualstudio.com/?_exp_home=e855cfac50), [Visual Studio IDE](https://visualstudio.microsoft.com/downloads/) )
 
 ### Installation
 
@@ -82,8 +83,7 @@ Make sure you have an Android.
 
 3. **Run the game:**
 
-   * Simply Open Game Build and Install Pong Game.apk
-   * Play and Enjoy the Game.
+   * Open the Pong in Unity as a Project
      
 \---
 
